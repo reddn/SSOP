@@ -33,7 +33,8 @@ with open (file.replace(".h", ".bak"), 'w') as file_write:
                 file_write.write(line.replace("}};", "}, {0xE4, 2, 5}};"))
             else:
                 file_write.write(line)
-    shutil.move(file.replace(".h", ".bak"), file)
+shutil.move(file.replace(".h", ".bak"), file)
+os.chmod(file, 0o0777)
 
 file = find_file('carstate.py', '/data/openpilot/selfdrive/car/honda')
 with open (file.replace(".py", ".bak"), 'w') as file_write:
@@ -133,8 +134,8 @@ with open (file.replace(".py", ".bak"), 'w') as file_write:
 
             else:
                 file_write.write(line)
-    shutil.move(file.replace(".py", ".bak"), file)
-
+shutil.move(file.replace(".py", ".bak"), file)
+os.chmod(file, 0o0777)
 
 
 file = find_file('hondacan.py', '/data/openpilot/selfdrive/car/honda')
@@ -148,7 +149,8 @@ with open (file.replace(".py", ".bak"), 'w') as file_write:
                     file_write.write(line.replace("bus =", "bus = 2 if car_fingerprint in HONDA_NIDEC_SERIAL_STEERING else"))
             else:
                 file_write.write(line)
-    shutil.move(file.replace(".py", ".bak"), file)
+shutil.move(file.replace(".py", ".bak"), file)
+os.chmod(file, 0o0777)
 
 
 
@@ -182,7 +184,9 @@ with open (file.replace(".py", ".bak"), 'w') as file_write:
                     file_write.write(line)
             else:
                 file_write.write(line)
-    shutil.move(file.replace(".py", ".bak"), file)
+shutil.move(file.replace(".py", ".bak"), file)
+os.chmod(file, 0o0777)
+
 
 
 carInClass = False
@@ -312,7 +316,9 @@ with open (file.replace(".py", ".bak"), 'w') as file_write:
 
             else:
                 file_write.write(line)
-    shutil.move(file.replace(".py", ".bak"), file)
+shutil.move(file.replace(".py", ".bak"), file)
+os.chmod(file, 0o0777)
 
-    shutil.copy("honda_accord_touring_2016_can.dbc", "/data/openpilot/opendbc/honda_accord_touring_2016_can.dbc")
+shutil.copy("honda_accord_touring_2016_can.dbc", "/data/openpilot/opendbc/honda_accord_touring_2016_can.dbc")
+os.chmod('/data/openpilot/opendbc/honda_accord_touring_2016_can.dbc', 0o0777)
 print ("Serial steering patch complete!");
