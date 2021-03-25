@@ -44,7 +44,7 @@ with open (file.replace(".py", ".bak"), 'w') as file_write:
                 file_write.write("      output_gb = 0.")
                 file_write.write()
                 file_write.write(line)
-            elif "def update(self, active, CS, v_target, v_target_future, a_target, CP" in line and "hasLead" is not in line:
+            elif "def update(self, active, CS, v_target, v_target_future, a_target, CP" in line and "hasLead" not in line:
                 file_write.write(line.replace("CP):","CP, hasLead):"))
             else:
                 file_write.write(line)
