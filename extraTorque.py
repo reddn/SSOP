@@ -13,7 +13,8 @@ torquePatch = """    if apply_steer > 229 and False:
         self.apply_steer_over_max_counter = 0
     elif apply_steer < -229 and False:
       apply_steer_orig = apply_steer
-      apply_steer = (apply_steer + 228) * 2 + apply_steer                                                              >      if apply_steer < -240:
+      apply_steer = (apply_steer + 228) * 2 + apply_steer 
+      if apply_steer < -240:
         self.apply_steer_over_max_counter+= 1
         if self.apply_steer_over_max_counter > 3:
           apply_steer = apply_steer_orig
