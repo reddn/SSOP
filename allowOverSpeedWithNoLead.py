@@ -40,9 +40,9 @@ with open (file.replace(".py", ".bak"), 'w') as file_write:
     with open (file, 'r') as file_read:
         for line in file_read:
             if "self.last_output_gb = output_gb" in line:
-                file_write.write("    if not has_Lead and output_gb < 0.:")
-                file_write.write("      output_gb = 0.")
-                file_write.write()
+                file_write.write("    if not has_Lead and output_gb < 0.:\n")
+                file_write.write("      output_gb = 0.\n")
+                file_write.write("\n")
                 file_write.write(line)
             elif "def update(self, active, CS, v_target, v_target_future, a_target, CP" in line and "hasLead" not in line:
                 file_write.write(line.replace("CP):","CP, hasLead):"))
